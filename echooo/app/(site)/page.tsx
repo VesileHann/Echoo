@@ -1,6 +1,9 @@
 import Image from "next/image";
 import Header from "@/components/Header";
 import ListItem from "@/components/ListItem";
+
+export const revalidate = 0;
+
 export default function Home() {
   return (
     <div className="
