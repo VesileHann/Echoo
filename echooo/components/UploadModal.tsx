@@ -75,7 +75,7 @@ const UploadModal =() =>{
                 error:imageError,
             }= await supabaseClient
             .storage
-            .from('iamges')//bucket name
+            .from('images')//bucket name
             .upload(`image-${values.title}-${uniqueId}`,imageFile,{
                 cacheControl:'3600', 
                 upsert:false
@@ -142,7 +142,6 @@ const UploadModal =() =>{
                 <div>
                     <div className="pb-1">
                         Select a song file
-
                     </div>
                     <Input
                     id="song"
