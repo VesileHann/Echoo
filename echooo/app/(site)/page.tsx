@@ -3,12 +3,13 @@ import Header from "@/components/Header";
 import ListItem from "@/components/ListItem";
 import getSongs from "@/actions/getSongs";
 import PageContent from "./components/PageContent";
+import Error from "./error";
 
 export const revalidate = 0;
 
 export default async function Home() {
   const songs =await getSongs();
-
+  //throw new Error('test');
   return (
     <div className="
     bg-neutral-900
