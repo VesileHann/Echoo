@@ -2,6 +2,7 @@
 import Stripe from "stripe";
 
 
+
 export interface Song{
     id:string;
     user_id:string;
@@ -40,10 +41,14 @@ export interface Price{
     type?:Stripe.Price.Type;
     interval?:Stripe.Price.Recurring.Interval;
     interval_count?:number;
-    trial_period_day?:number | null;
+    trial_period_days?:number | null;
     metadata?:Stripe.Metadata;
     products?:Product;
 };
+export interface ProductWithPrice extends Product{
+    prices?:Price[];
+};
+
 export interface Subscription{
     id:string;
     user_id:string;
