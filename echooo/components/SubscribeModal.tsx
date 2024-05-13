@@ -1,8 +1,6 @@
 "use client";
 
-import { describe } from "node:test";
 import Modal from "./Modal";
-import { Description } from "@radix-ui/react-dialog";
 import { Price, ProductWithPrice } from "@/types";
 import Button from "./Button";
 import { useState } from "react";
@@ -21,7 +19,7 @@ const formatPrice = (price: Price) =>{
     style: 'currency',
     currency: price.currency,
     minimumFractionDigits: 0
-    }).format((price ?. unit_amount||0) / 100);
+    }).format((price?.unit_amount||0) / 100);
 
     return priceString;
 }
@@ -42,7 +40,6 @@ const SubscribeModal:React.FC<SubscribeModalProps> = ({
         if(!user){
             setPriceIdLoading(undefined);
             return toast.error("Must be Logged in");
-            
         }
         if(subscription){
             setPriceIdLoading(undefined);
@@ -57,9 +54,9 @@ const SubscribeModal:React.FC<SubscribeModalProps> = ({
             const stripe = await getStripe();
             stripe?.redirectToCheckout({ sessionId });
             } catch (error) {
-            toast.error((error as Error) ?. message);
+                 toast.error((error as Error) ?. message);
             } finally{
-            setPriceIdLoading(undefined);
+                setPriceIdLoading(undefined);
             }
     }
 

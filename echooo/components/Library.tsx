@@ -27,7 +27,8 @@ interface LibraryProps {
     }
 
     if(!subscription){
-      return subscribeModal.onOpen();
+      //return subscribeModal.onOpen();
+     return uploadModal.onOpen();
     }
     return uploadModal.onOpen();
   };

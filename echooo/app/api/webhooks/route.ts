@@ -17,8 +17,7 @@ const relevantEvents = new Set([
     'checkout.session.completed',
     'customer.subscription.created',
     'customer.subscription.updated',
-    'customer.subscription.deleted'
-    
+    'customer.subscription.deleted' 
 ]);
 export async function POST(
     request: Request
@@ -58,8 +57,7 @@ export async function POST(
         );
         break;
         case 'checkout.session.completed':
-            const checkoutSession = event.data
-            .object as Stripe.Checkout.Session;
+            const checkoutSession = event.data.object as Stripe.Checkout.Session;
         if (checkoutSession.mode === "subscription") {
         const subscriptionId = checkoutSession.subscription;
         await manageSubscriptionStatusChange(
@@ -78,4 +76,4 @@ export async function POST(
     }
 
     return NextResponse.json({received:true},{status:200})
-}
+};

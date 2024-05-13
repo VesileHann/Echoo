@@ -1,5 +1,5 @@
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
-import {headers,cookies} from "next/headers";
+import {cookies} from "next/headers";
 import { NextResponse } from "next/server";
 
 import {stripe} from"@/libs/stripe";
@@ -9,7 +9,7 @@ import { createOrRetrieveACustomer } from "@/libs/supabaseAdmin";
 export async function POST(
     request:Request
 ){
-    const {price,quantity=1,metadata={}}=await request.json();
+    const {price,quantity=1,metadata={}}=await request.json(); 
     try{
         const supabase=createRouteHandlerClient({
             cookies,
@@ -18,30 +18,30 @@ export async function POST(
         const {data:{user}}=await supabase.auth.getUser();
 
         const customer =await createOrRetrieveACustomer({
-            uuid:user?.id ||'',
+            user_id:user?.id ||'',
             email:user?.email||''
         });
 
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ['card'],
             billing_address_collection: 'required',
-            customer,
+            customer, // Assuming customer.id is the correct property for customer ID
             line_items: [
                 {
                     price: price.id,
                     quantity
                 }
             ],
-                mode: 'subscription',
-                allow_promotion_codes: true,
-                subscription_data: {
-                trial_period_days: 7, // example trial period
+            mode: 'subscription',
+            allow_promotion_codes: true,
+            subscription_data: {
                 metadata
             },
             success_url: `${getURL()}/account`,
             cancel_url: `${getURL()}`
-                });
-                return NextResponse.json({sessionId:session.id}) 
+        });
+
+            return NextResponse.json({sessionId:session.id}) 
         }catch(error:any){
         console.log(error);
         return new NextResponse('Internal Error',{status:500})

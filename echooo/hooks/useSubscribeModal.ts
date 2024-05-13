@@ -6,10 +6,10 @@ interface SubscribeStore{
     onClose:()=>void;
 };
 
-const useSubscribe = create <SubscribeStore>((set)=> ({
+const useSubscribeModal = create <SubscribeStore>((set)=> ({
     isOpen:false,
     onOpen:() => set({isOpen:true}),
     onClose: () => set({isOpen:false}),
 }));
 
-export default useSubscribe;
+export default useSubscribeModal;
