@@ -1,3 +1,12 @@
+/**
+ * SOLID prensipleri: `Library` bileşeni, müzik kitaplığıyla ilgili işlevleri içerirken diğer 
+ * işlevleri harici kancalar (`useAuthModal`, `useUploadModal`, `useUser`) aracılığıyla alır, 
+ * böylece tek bir sorumluluğa odaklanır ve bağımlılıkları tersine çevirme ilkesine uyum sağlar. 
+ * Bu, bileşenin genişletilebilir ve değiştirilebilir olmasını sağlar. `onClick` fonksiyonu, kullanıcı
+ *  oturum açma durumuna göre farklı işlevler gerçekleştirerek açık/kapalı ilkesine uyum sağlar. `LibraryProps`
+ *  arayüzü, sadece `songs` adlı bir dizi içerir, böylece arayüz ayırma ilkesine uyar ve gereksiz bağımlılıkları
+ *  önler. Bu prensiplerin uygulanması, kodun daha okunabilir, bakımı daha kolay ve genel olarak daha esnek olmasını sağlar.
+ */
 "use client";
 
 import { TbPlaylist } from "react-icons/tb";
@@ -9,8 +18,6 @@ import { Song } from "@/types";
 import MediaItem from "./MediaItem";
 import useOnPlay from "@/hooks/useOnPlay";
 
-// Bileşen bazlı tasarım deseni kullanılmıştır.
-
 interface LibraryProps {
   songs: Song[];
 }
@@ -18,25 +25,25 @@ interface LibraryProps {
 const Library: React.FC<LibraryProps> = ({
   songs
 }) => {
-  const authModal = useAuthModal(); // Hook Deseni: AuthModal bileşeni kullanılırken özelleştirilmiş bir hook kullanılmıştır.
-  const uploadModal = useUploadModal(); // Hook Deseni: UploadModal bileşeni kullanılırken özelleştirilmiş bir hook kullanılmıştır.
-  const { user } = useUser(); // Hook Deseni: User bilgisi kullanılırken özelleştirilmiş bir hook kullanılmıştır.
+  const authModal = useAuthModal();
+  const uploadModal = useUploadModal();
+  const { user } = useUser();
 
-  const onPlay = useOnPlay(songs); // Hook Deseni: Oynatma işlemi için özelleştirilmiş bir hook kullanılmıştır.
+  const onPlay = useOnPlay(songs);
 
   const onClick = () => {
     if (!user) {
       return authModal.onOpen();
     }
 
-    return uploadModal.onOpen(); 
+    return uploadModal.onOpen();
   }
 
   return (
     <div className="flex flex-col">
       <div className="flex items-center justify-between px-5 pt-4">
         <div className="inline-flex items-center gap-x-2">
-          <TbPlaylist className="text-neutral-400" size={26} /> // Simge Deseni: İlgili simgeyi temsil eden bir simge bileşeni kullanılmıştır.
+          <TbPlaylist className="text-neutral-400" size={26} />
           <p className="text-neutral-400 font-medium">
             Your Library
           </p>
@@ -45,7 +52,7 @@ const Library: React.FC<LibraryProps> = ({
           onClick={onClick}
           size={20}
           className="text-neutral-400 cursor-pointer hover:text-white transition"
-        /> // Simge Deseni: İlgili simgeyi temsil eden bir simge bileşeni kullanılmıştır.
+        />
       </div>
       <div className="flex flex-col gap-y-2 mt-4 px-3">
         {songs.map((item) => (
@@ -53,11 +60,11 @@ const Library: React.FC<LibraryProps> = ({
             onClick={(id: string) => onPlay(id)}
             key={item.id}
             data={item}
-          /> 
+          />
         ))}
       </div>
     </div>
   )
 }
 
-export default Library;
+export default Library;s
