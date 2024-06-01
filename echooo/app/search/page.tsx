@@ -1,3 +1,12 @@
+/**
+ * SOLID prensipleri: Tek sorumluluk ilkesine uygun olarak, `Search` bileşeni yalnızca arama parametreleriyle 
+ * ilgilenir ve şarkıları getirip göstermekle sorumludur. Açık/Kapalı ilkesi doğrultusunda,
+ * kod genişletilebilirlik için uygun bir yapı sunar; yeni bir arama işlevi eklemek istendiğinde mevcut kod 
+ * değiştirilmeden genişletilebilir. Arayüz Ayırma ilkesi gereğince, bileşen sadece arama parametreleriyle
+ * ilgili olan bir arayüz kullanır, bu da gereksiz bağımlılıkları önler. Bağımlılıkları Tersine Çevirme ilkesine 
+ * uyum ise, dış kaynaklardan veri alırken bağımlılıkları doğrudan içermeyip, dış kancalar aracılığıyla alır,
+ * bu da esnek bir yapı sunar.
+ */
 import getSongsByTitle from "@/actions/getSongsByTitle";
 import Header from "@/components/Header";
 import SearchContent from "./components/SearchContent";
