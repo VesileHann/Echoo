@@ -1,37 +1,34 @@
-import Image from "next/image";
+import getSongs from "@/actions/getSongs";
 import Header from "@/components/Header";
 import ListItem from "@/components/ListItem";
-import getSongs from "@/actions/getSongs";
-import PageContent from "./components/PageContent";
-import Error from "./error";
+import PageContent from "@/app/(site)/components/PageContent";
 
 export const revalidate = 0;
 
 export default async function Home() {
-  const songs =await getSongs();
-  //throw new Error('test');
-  return (
+  const songs = await getSongs();
+	return (
     <div className="
     bg-neutral-900
-    rounded-lg
-    h-full
-    w-full
-    overflow-hidden
-    overflow-y-auto
+      rounded-lg
+      h-full
+      w-full
+      overflow-hidden
+      overflow-y-auto
     ">
       <Header>
-        <div>
+        <div className="mb-2">
           <h1
             className="
               text-white
               text-3xl
               font-semibold
             "
-            >
-              Welcome back
+          >
+            Welcome back
           </h1>
           <div
-          className="
+            className="
               grid
               grid-cols-1
               sm:grid-cols-2
@@ -39,13 +36,13 @@ export default async function Home() {
               2xl:grid-cols-4
               gap-3
               mt-4
-          "
+            "
           >
-              <ListItem
+            <ListItem 
               image="/images/liked.png"
               name="Liked Songs"
               href="liked"
-              />
+            />
           </div>
         </div>
       </Header>
@@ -54,10 +51,9 @@ export default async function Home() {
           <h1 className="text-white text-2xl font-semibold">
             Newest songs
           </h1>
-
         </div>
-      <PageContent songs={songs}/>
+        <PageContent songs={songs} />
       </div>
     </div>
-  );
+  )
 }
