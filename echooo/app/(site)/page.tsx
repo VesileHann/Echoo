@@ -1,3 +1,12 @@
+/**
+ * SOLID prensipleri:`Home` fonksiyonu, ana sayfa içeriğini oluştururken `Header`, `ListItem`, ve
+ * `PageContent` gibi bileşenleri kullanır. Bu, kodun genişletilebilir ve yeniden kullanılabilir 
+ * olmasını sağlar. Bağımlılıkları tersine çevirme ilkesi doğrultusunda, dış bir kaynaktan (`getSongs`)
+ * veri alır ve bu veriyi işler. Tek sorumluluk ilkesine uygun olarak, ana sayfanın içeriğiyle ilgili işlevleri
+ * içerir. Ancak, açık kapalı ilkesi daha net bir şekilde uygulanabilir. Örneğin, sayfa içeriğinin listelenmesi
+ * için ayrı bir bileşen veya işlev oluşturarak kodun genişletilebilirliği ve yeniden kullanılabilirliği 
+ * artırılabilir. Bu, kodun daha bakımı kolay ve esnek olmasını sağlar, SOLID prensiplerine daha iyi bir uyum sağlar.
+ */
 import getSongs from "@/actions/getSongs";
 import Header from "@/components/Header";
 import ListItem from "@/components/ListItem";
