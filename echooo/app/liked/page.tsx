@@ -1,3 +1,11 @@
+/**
+ * SOLID prensipleri:`Liked` bileşeni sadece beğenilen şarkıları getirip görüntülemekle sorumludur, 
+ * bu da tek sorumluluk ilkesine uygunluğu gösterir. Bağımlılıkları tersine çevirme ilkesi doğrultusunda, 
+ * dış kancalar aracılığıyla (`getLikedSongs`) bağımlılıkları içerir. Ancak, açık kapalı ilkesi ve arayüz
+ *  ayırma prensibi daha net bir şekilde uygulanabilir. Örneğin, görüntülenen içerikler için ayrı bir bileşen
+ *  veya işlev oluşturarak kodun genişletilebilirliği ve yeniden kullanılabilirliği artırılabilir, bu da SOLID 
+ * prensiplerine daha iyi bir uyum sağlar.
+ */
 import getLikedSongs from "@/actions/getLikedSongs";
 import Header from "@/components/Header";
 import Image from "next/image";
