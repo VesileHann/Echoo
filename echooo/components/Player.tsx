@@ -1,4 +1,5 @@
 "use client";
+// Bu bileşen, oynatıcı özelliğini ve içerik gösterimini yönetir.
 
 import useGetSongById from "@/hooks/useGetSongById";
 import useLoadSongUrl from "@/hooks/useLoadSongUrl";

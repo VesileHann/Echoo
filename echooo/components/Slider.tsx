@@ -6,7 +6,7 @@ interface SliderProps {
   value?: number;
   onChange?: (value: number) => void;
 }
-
+// Bu bileşen Single Responsibility Principle (SRP) prensibine uygundur çünkü sadece bir slider bileşeni temsil eder ve kaydırma değerini yönetir.
 const Slider: React.FC<SliderProps> = ({
   value = 1,
   onChange

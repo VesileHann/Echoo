@@ -4,7 +4,7 @@ import { twMerge } from "tailwind-merge";
 interface InputProps extends React.HTMLProps<HTMLInputElement> {
 
 }
-
+// Özel bir tasarım deseni kullanılmamıştır, ancak kompozisyon ilkesi gözetilerek Input bileşeni oluşturulmuştur.
 const Input = forwardRef<HTMLInputElement, InputProps>(({
   className,
   type,

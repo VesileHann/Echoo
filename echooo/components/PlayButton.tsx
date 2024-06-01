@@ -1,4 +1,5 @@
 import { FaPlay } from "react-icons/fa";
+// Bu bileşen, oynat düğmesini temsil eder ve kullanıcı üzerine geldiğinde görsel efektler uygular.
 
 const PlayButton = () => {
   return (

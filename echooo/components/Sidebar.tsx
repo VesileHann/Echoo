@@ -11,7 +11,8 @@ import Library from "./Library";
 import { Song } from "@/types";
 import usePlayer from "@/hooks/usePlayer";
 import { twMerge } from "tailwind-merge";
-
+// Bu bileşen Open/Closed Principle (OCP) prensibine uygundur çünkü yeni sayfaların eklenmesi
+// veya mevcut sayfaların değiştirilmesi, sidebar bileşenini değiştirmeden mümkündür.
 interface SidebarProps {
 	children: React.ReactNode;
 	songs: Song[]

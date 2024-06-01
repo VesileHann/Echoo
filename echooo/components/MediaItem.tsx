@@ -9,6 +9,7 @@ interface MediaItemProps {
   onClick?: (id: string) => void;
 }
 
+// Bu bileşen Single Responsibility Principle (SRP) prensibine uygundur çünkü bir medya öğesini temsil eder ve tıklanma olayını yönetir.
 const MediaItem: React.FC<MediaItemProps> = ({
   data,
   onClick
@@ -19,7 +20,6 @@ const MediaItem: React.FC<MediaItemProps> = ({
     if (onClick) {
       onClick(data.id);
     }
-    // TODO: Default turn on player
   }
 
   return (

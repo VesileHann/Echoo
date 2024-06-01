@@ -1,3 +1,12 @@
+// Fabrika (Factory) Deseni: Header bileşeni içerisinde Button bileşenlerini oluştururken kullanılıyor, 
+//farklı durumlara göre uygun Button türünü üretiyor.
+// Gözlemci (Observer) Deseni: useAuthModal ve useUser hookları, 
+//Header bileşenindeki durumları izleyerek gerekli güncellemeleri yapmaya yardımcı oluyor.
+// Kompozit (Composite) Deseni: Button bileşenleri ve ikon bileşenleri (FaUserAlt, RxCaretLeft, RxCaretRight, HiHome, BiSearch), 
+//karmaşık yapılarda kullanılarak bir araya getiriliyor ve tek bir bileşen olarak sunuluyor.
+// Durum (State) Deseni: Header bileşeni, kullanıcı oturum durumuna göre farklı işlemler yapabiliyor
+// ve kullanıcı arayüzünü bu duruma göre dinamik olarak değiştiriyor.
+
 "use client";
 
 import { useRouter } from "next/navigation";

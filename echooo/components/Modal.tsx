@@ -1,3 +1,18 @@
+
+// 1. Facade Pattern: `Dialog.Root`, `Dialog.Overlay`, `Dialog.Content`, ve `Dialog.Title` gibi bileşenler, Radix UI tarafından 
+//sağlanan ve arka planda karmaşık mantıkları yöneten bir arayüz sağlayıcısı gibi davranıyor. 
+//Bu, kullanıcının Modal bileşenini basit bir şekilde kullanmasına olanak tanır.
+
+// 2. State Pattern: `isOpen` ve `onChange` prop'ları aracılığıyla Modal'ın açık veya kapalı olduğunu ve bu durumun değişimini
+// yönetiriz. Bu, bileşenin durumunu ve davranışını kontrol etmek için kullanılır.
+
+// 3. Builder Pattern: Modal bileşeninin içeriği, başlık ve açıklama gibi bileşenlerle birlikte yapılandırılır. 
+//Bu, bileşenin kullanımını kolaylaştırır ve yapılandırmasını modüler hale getirir.
+
+// 4. Singleton Pattern: Radix UI'nin sağladığı bileşenler, tek bir örnekle temsil edilir ve genellikle 
+//içsel olarak bu örnek üzerinden yönetilir. Bu, uygulamanın bellek kullanımını optimize edebilir ve aynı bileşenin farklı yerlerdeki kullanımlarını aynı temel özelliklerle tutarlı hale getirebilir.
+
+
 import * as Dialog from '@radix-ui/react-dialog';
 import { IoMdClose } from 'react-icons/io';
 

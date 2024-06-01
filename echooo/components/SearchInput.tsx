@@ -7,6 +7,8 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Input from "./Input";
 
+// Bu bileşen Single Responsibility Principle (SRP) prensibine uygundur çünkü sadece arama girişini temsil eder ve kullanıcı tarafından yapılan arama sorgularını yönetir.
+// Ayrıca, bu bileşen Strategy Pattern kullanır çünkü arama sorgularının nasıl işleneceği (örneğin, debouncing) dinamik olarak değiştirilebilir.
 const SearchInput = () => {
   const router = useRouter();
   const [value, setValue] = useState<string>("");

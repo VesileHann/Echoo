@@ -1,7 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import { IconType } from "react-icons";
 import { twMerge } from "tailwind-merge";
 
+// Bu bileşen Open/Closed Principle (OCP) prensibine uygundur çünkü yeni sayfaların eklenmesi veya mevcut sayfaların değiştirilmesi, sidebar bileşenini değiştirmeden mümkündür.
 interface SidebarItemProps {
 	icon: IconType;
 	label: string;

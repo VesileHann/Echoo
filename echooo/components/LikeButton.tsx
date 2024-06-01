@@ -12,6 +12,7 @@ interface LikeButtonProps {
   songId: string;
 }
 
+// Single Responsibility Principle (SRP): LikeButton bileşeni sadece beğenme işlemlerini yönetmekle sorumludur.
 const LikeButton: React.FC<LikeButtonProps> = ({
   songId
 }) => {
@@ -45,6 +46,7 @@ const LikeButton: React.FC<LikeButtonProps> = ({
 
   const Icon = isLiked ? AiFillHeart : AiOutlineHeart;
 
+  // Open/Closed Principle (OCP): Kod, yeni beğenme türleri eklemeye kapalıdır ancak mevcut beğenme türlerini genişletmeye açıktır.
   const handleLike = async () => {
     if (!user) {
       return authModal.onOpen();

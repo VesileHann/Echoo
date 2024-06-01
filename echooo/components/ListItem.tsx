@@ -10,6 +10,7 @@ interface ListItemProps {
   href: string;
 }
 
+// Single Responsibility Principle (SRP): ListItem bileşeni, bir liste öğesini temsil eder ve tıklanma olayını yönetmekle sorumludur.
 const ListItem: React.FC<ListItemProps> = ({
   image,
   name,
@@ -17,6 +18,7 @@ const ListItem: React.FC<ListItemProps> = ({
 }) => {
   const router = useRouter();
 
+  // Open/Closed Principle (OCP): Kod, yeni özellikler eklemeye kapalıdır ancak mevcut özellikleri genişletmeye açıktır.
   const onClick = () => {
     router.push(href);
   }

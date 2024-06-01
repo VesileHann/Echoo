@@ -1,3 +1,12 @@
+/**
+ * Supabase'in kullanıcı kimlik doğrulama özelliklerini kullanarak, bir modal penceresi içinde kullanıcı kimlik doğrulama deneyimi sunar. 
+ * Kullanıcı oturum açtığında, sayfa yenilenir ve modal penceresi kapanır.
+ */
+// Facade Pattern: AuthModal bileşeni, karmaşık bir yapıyı basitleştirerek kullanıcıya sunar ve Modal bileşeniyle bir arayüz oluşturur.
+// Observer Pattern: useEffect hook'u, session değiştiğinde router'ı güncellemek ve modalı kapatmak için bir gözlemleyici olarak kullanılır.
+// Factory Pattern: Auth bileşeni, AuthModal bileşeni içinde kullanılarak dinamik olarak oluşturulur.
+// Singleton Pattern: useRouter hook'u, tek bir router örneği sağlayarak uygulama genelinde bir tek router kullanımını destekler.
+
 "use client";
 
 import { useSessionContext, useSupabaseClient } from "@supabase/auth-helpers-react";

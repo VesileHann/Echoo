@@ -1,3 +1,11 @@
+/** 
+ * UploadModal bileşeni SOLID prensiplerine uygun bir şekilde tasarlanmıştır. 
+ * SRP'ye göre, sadece şarkı yükleme işlemlerini yönetir, böylece tek bir sorumluluğu vardır. 
+ * OCP'ye uygun olarak genişletilebilir bir yapıya sahiptir, yeni özellikler eklenmek istendiğinde mevcut yapının değiştirilmesi
+ *  yerine uzantıları kullanabilir. ISP'yi doğrudan uygulamasa da, arayüzleri özgürce kullanarak 
+ * gereksinimlere uygun şekilde işlevselliği sağlar.
+ * Son olarak, DIP'yi uygulayarak dışa bağımlılıkları enjekte ederek bağımlılıkları azaltır ve kodun test edilebilirliğini artırır.
+ */
 "use client";
 
 import useUploadModal from "@/hooks/useUploadModal";

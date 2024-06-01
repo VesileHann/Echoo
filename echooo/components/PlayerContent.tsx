@@ -1,3 +1,7 @@
+// Bu bileşen, Single Responsibility Principle (SRP) prensibine uygundur çünkü sadece çalma listesi içeriğini gösterir ve kullanıcı etkileşimlerini yönetir.
+// Ayrıca, bu bileşen State Pattern kullanır çünkü çalma durumuna ve ses düzeyine göre farklı davranışlar sergiler. 
+// Örneğin, çalma durumu değiştiğinde (oynatma veya duraklatma), bu durumun UI'da görsel olarak yansıtılması sağlanır.
+// Ayrıca, ses seviyesi değiştiğinde (mute veya unmute), bu durumun da UI'da görsel olarak yansıtılması ve ilgili işlevlerin etkinleştirilmesi sağlanır.
 "use client";
 
 import { Song } from "@/types";

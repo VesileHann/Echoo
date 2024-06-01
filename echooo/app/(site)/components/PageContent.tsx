@@ -1,3 +1,9 @@
+/**
+ * Composite patterni kullanılır çünkü PageContent bileşeni, 
+ * hem tek bir şarkı öğesini (SongItem) hem de bu öğelerin bir araya gelerek oluşturduğu bir 
+ * liste yapısını temsil eder. Böylece, hem tek bir öğeyi hem de bu öğelerin hiyerarşik olarak bir araya 
+ * gelerek oluşturduğu yapıları aynı arayüz üzerinden yönetmek mümkün olur.
+ */
 "use client";
 
 import { Song } from "@/types";

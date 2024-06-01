@@ -11,7 +11,7 @@ import { useEffect } from "react";
 interface LikedContentProps {
   songs: Song[];
 }
-
+// Factory Pattern benzeri kullanım:LikeButton ve MediaITem fabrika deseni kullanımına benzer olarak düşünülebilir
 const LikedContent: React.FC<LikedContentProps> = ({
   songs
 }) => {
@@ -19,6 +19,11 @@ const LikedContent: React.FC<LikedContentProps> = ({
   const { isLoading, user } = useUser();
 
   const onPlay = useOnPlay(songs);
+
+  // Observer Pattern kullanımı
+  /* useEffect, kullanıcı yüklenirken ve kullanıcı durumu değiştiğinde bir olayı gözlemlemek ve bu olaya tepki vermek için kullanılıyor. 
+   * Kullanıcı yüklenince veya durumu değiştiğinde, belirli bir işlem yapılması gerektiğini belirtmek için bu desen kullanılıyor.
+   */
 
   useEffect(() => {
     if (!isLoading && !user) {

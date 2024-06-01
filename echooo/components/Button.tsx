@@ -1,8 +1,10 @@
 import { forwardRef } from "react";
 import { twMerge } from "tailwind-merge";
 
+// Geriye Kapsama (Facade) Deseni: HTML düğmelerine özgü özellikleri saklamak ve kullanımı kolaylaştırmak için kullanılıyor.
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
 
+// Geriye Kapsama (Facade) Deseni kullanılarak, HTML düğmeleri için genel bir bileşen oluşturuluyor.
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
   className,
   children,
